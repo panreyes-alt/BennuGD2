@@ -34,7 +34,7 @@ endif ()
 
 # tools
 if (NOT BUILD_TOOLS EQUAL -1 OR NOT BUILD_ALL EQUAL -1 OR "${BUILD_TARGET}" STREQUAL "OFF")
-    add_subdirectory(tools/moddesc)
+#    add_subdirectory(tools/moddesc)
 endif ()
 
 # modules

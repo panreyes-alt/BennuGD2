@@ -12,6 +12,9 @@ if (LIBRARY_BUILD_TYPE STREQUAL "STATIC")
     if(USE_SDL2_GPU)
         find_package(SDL_GPU REQUIRED)
     endif()
+	if($ENV{STEAMWORKSDIR})
+		find_package(STEAMWORKS REQUIRED)
+	endif()
 
     include_directories(${SDL2_INCLUDE_DIR} ${SDL2_INCLUDE_DIRS} ${SDL_GPU_INCLUDE_DIR} ${SDLMIXER_INCLUDE_DIRS} ${SDL2_mixer_INCLUDE_DIRS} ../bgdrtm ${MODULE_HEADERS})
 
@@ -60,4 +63,4 @@ endif()
 
 add_executable(bgdi ${SOURCES})
 
-target_link_libraries(bgdi -L../../bin bgdrtm ${EXTRA_LIBS} ${SDL2_LIBS} ${SDL2_LIBRARY} ${SDL2_LIBRARIES} ${SDLMIXER_LIBRARY} ${SDL2_mixer_LIBRARIES} ${SDL2_IMAGE_LIBRARY} ${SDL2_image_LIBRARIES} ${SDL_GPU_LIBRARY} ${OGL_LIB} ${VLC_LIB} ${OTHER_LIBS} -lm)
+target_link_libraries(bgdi -L../../bin bgdrtm ${EXTRA_LIBS} ${SDL2_LIBS} ${SDL2_LIBRARY} ${SDL2_LIBRARIES} ${SDLMIXER_LIBRARY} ${SDL2_mixer_LIBRARIES} ${SDL2_IMAGE_LIBRARY} ${SDL2_image_LIBRARIES} ${SDL_GPU_LIBRARY} ${OGL_LIB} ${VLC_LIB} ${STEAMWORKS_LIBRARY} ${OTHER_LIBS} -lm)
